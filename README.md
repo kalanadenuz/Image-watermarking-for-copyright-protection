@@ -36,4 +36,4 @@ This project implements an invisible digital image watermarking system using the
 Academic project for Digital Image Processing module.
 
 ## Author
-Kalana Denuz
+WH Naveen , Kalana Denusha
