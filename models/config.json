@@ -1,0 +1,20 @@
+{
+    "image_dir": "data/images",
+    "watermark_dir": "data/watermarks",
+    "checkpoint_dir": "models",
+    "log_dir": "logs",
+    "batch_size": 4,
+    "num_epochs": 50,
+    "learning_rate": 0.0001,
+    "image_size": 128,
+    "watermark_size": 32,
+    "image_loss_weight": 1.0,
+    "watermark_loss_weight": 1.0,
+    "use_attacks": true,
+    "attack_probability": 0.5,
+    "deep_encoder": false,
+    "decoder_arch": "standard",
+    "save_frequency": 5,
+    "resume": null,
+    "num_workers": 0
+}
