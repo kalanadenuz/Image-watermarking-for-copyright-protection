@@ -45,7 +45,7 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 html,body,[class*="css"]{font-family:'Inter',sans-serif;}
 .stApp{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#e8e8f0;}
-#MainMenu,footer,header{visibility:hidden;}
+#MainMenu,footer{visibility:hidden;}
 
 .hero-banner{background:linear-gradient(90deg,#6a11cb 0%,#2575fc 100%);
  border-radius:18px;padding:2.2rem 3rem;margin-bottom:1.5rem;text-align:center;
