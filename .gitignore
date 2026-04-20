@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+env/
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# App/runtime artifacts
+logs/
+models/
+results/
+archive/
+
+# Data (exclude heavy datasets)
+dataset/
+dataset_synthetic_backup/
+
+# Notebooks/checkpoints
+.ipynb_checkpoints/
+
+# Build/cache
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Documents not needed for repo
+*.pdf

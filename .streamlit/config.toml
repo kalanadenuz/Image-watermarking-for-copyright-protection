@@ -1,0 +1,17 @@
+[server]
+headless = true
+runOnSave = false
+fileWatcherType = "none"
+maxUploadSize = 20
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+serverAddress = "localhost"
+
+[runner]
+fastReruns = false
+
+[logger]
+level = "error"
+messageFormat = "%(message)s"
