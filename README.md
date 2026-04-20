@@ -15,7 +15,7 @@ Built and maintained by **Kalana DenuZ**.
 
 ## Live App
 
-[Open WatermarkShield Live](https://your-app-name.streamlit.app)
+[Open WatermarkShield Live](https://watermarkshield.streamlit.app)
 
 ---
 
