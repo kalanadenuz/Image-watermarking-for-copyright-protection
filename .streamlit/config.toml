@@ -3,11 +3,10 @@ headless = true
 runOnSave = false
 fileWatcherType = "none"
 maxUploadSize = 20
-enableXsrfProtection = false
+enableXsrfProtection = true
 
 [browser]
 gatherUsageStats = false
-serverAddress = "localhost"
 
 [runner]
 fastReruns = false

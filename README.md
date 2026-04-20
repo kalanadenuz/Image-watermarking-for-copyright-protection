@@ -13,6 +13,10 @@ It combines handcrafted signal analysis with a deep model to classify images as:
 
 Built and maintained by **Kalana DenuZ**.
 
+## Live App
+
+[Open WatermarkShield Live](https://your-app-name.streamlit.app)
+
 ---
 
 ## Highlights
