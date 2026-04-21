@@ -102,6 +102,19 @@ def get_dataset_stats():
             folder = root / subset / cls
             if folder.exists():
                 stats[f"{subset}_{cls}"] = len(list(folder.glob("*.*")))
+
+    # Streamlit Cloud deployment intentionally excludes heavy dataset folders.
+    # Use reference counts so the UI does not show misleading zeros online.
+    if sum(stats.values()) == 0:
+        stats = {
+            "train_clean": int(os.getenv("WM_TRAIN_CLEAN", "13269")),
+            "train_watermarked": int(os.getenv("WM_TRAIN_WATERMARKED", "13302")),
+            "test_clean": int(os.getenv("WM_TEST_CLEAN", "3488")),
+            "test_watermarked": int(os.getenv("WM_TEST_WATERMARKED", "3498")),
+            "_source": "reference",
+        }
+    else:
+        stats["_source"] = "local"
     return stats
 
 
@@ -260,9 +273,13 @@ with st.sidebar:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("** Dataset Overview**")
     ds = get_dataset_stats()
+    stats_source = ds.get("_source", "local")
     train_total = ds['train_clean'] + ds['train_watermarked']
     test_total  = ds['test_clean']  + ds['test_watermarked']
     grand_total = train_total + test_total
+
+    if stats_source == "reference":
+        st.caption("Showing reference dataset counts (cloud deploy mode)")
 
     st.markdown(f"""
     <div class="dataset-box">
@@ -316,8 +333,12 @@ st.markdown(f"""
 if uploaded is None:
     st.markdown("###  Dataset Overview")
     ds = get_dataset_stats()
+    stats_source = ds.get("_source", "local")
     train_total = ds['train_clean'] + ds['train_watermarked']
     test_total  = ds['test_clean']  + ds['test_watermarked']
+
+    if stats_source == "reference":
+        st.info("Showing reference dataset counts because dataset folders are not bundled in deployment.")
 
     c1, c2 = st.columns(2, gap="large")
     with c1:
@@ -740,7 +761,8 @@ if uploaded is not None:
     with tab3:
         st.markdown("## About WatermarkShield Professional")
         ds = get_dataset_stats()
-        grand = sum(ds.values())
+        stats_source = ds.get("_source", "local")
+        grand = ds['train_clean'] + ds['train_watermarked'] + ds['test_clean'] + ds['test_watermarked']
 
         c1, c2 = st.columns(2)
         with c1:
@@ -770,6 +792,8 @@ if uploaded is not None:
 
         with c2:
             st.markdown("### Dataset Statistics")
+            if stats_source == "reference":
+                st.caption("Reference counts (deployment mode)")
             mc1, mc2, mc3 = st.columns(3)
             with mc1:
                 st.metric("Train WM", f"{ds['train_watermarked']:,}")
