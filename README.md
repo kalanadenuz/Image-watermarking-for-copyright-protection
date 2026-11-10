@@ -232,28 +232,6 @@ Open in browser:
 
 ---
 
-## Can This Be Live On GitHub Pages?
-
-**Short answer: not as a full Streamlit app.**
-
-GitHub Pages is for static sites (HTML/CSS/JS). This project needs a Python runtime and server process.
-
-### Best options for live deployment
-
-- Streamlit Community Cloud
-- Render
-- Railway
-- Hugging Face Spaces (with Streamlit)
-- VPS (Ubuntu + Nginx + systemd)
-
-### GitHub Pages can still be used for
-
-- A static landing page
-- Documentation site
-- Demo media gallery (screenshots, architecture notes)
-
----
-
 ## Support & Contact
 
 **Kalana DenuZ**
